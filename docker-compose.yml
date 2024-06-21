@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./Sysad:/home/cpvbox/Sysad
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: induction
+      MYSQL_USER: user
+      MYSQL_PASSWORD: Del24sysad
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+

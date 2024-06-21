@@ -1,25 +1,28 @@
 version: '3.8'
 
 services:
-  web:
-    build: .
+  server:
+    container_name: server
+    build: 
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     volumes:
-      - ./Sysad:/home/cpvbox/Sysad
-    depends_on:
-      - db
+      - shared:home/cpvbox/Sysad2/shared/
 
   db:
-    image: mysql:latest
+    container_name: database
+    image: postgres
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: induction
-      MYSQL_USER: user
-      MYSQL_PASSWORD: Del24sysad
+      - POSTGRES_DB=server_db
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=Del24Sysad$$
+    ports:
+      - "5432:5432"
     volumes:
-      - db_data:/var/lib/mysql
+      - shared:home/aakash/Desktop/Delta/shared/
+    command: bash -c "cp home/cpvbox/Sysad2/shared/database.sql docker-entrypoint-initdb.d/database.sql && docker-entrypoint.sh postgres"
 
 volumes:
-  db_data:
-
+  shared:

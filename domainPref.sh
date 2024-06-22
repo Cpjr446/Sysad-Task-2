@@ -11,11 +11,11 @@ domain_pref() {
     domain_pref_file="$MENTEES_DIR/$mentee_name/domain_pref.txt"
     # echo "$MENTEES_DIR/$mentee_name"
 
-    # # Check if mentee exists
-    # if [ ! -d "$MENTEES_DIR/$mentee_name" ]; then
-    #     echo "Mentee $mentee_name does not exist."
-    #     exit 1
-    # fi
+    # Check if mentee exists
+    if [ ! -d "$MENTEES_DIR/$mentee_name" ]; then
+         echo "Mentee $mentee_name does not exist."
+         exit 1
+    fi
 
     # Get domain preferences from mentee
     echo "Enter your domain preferences (1-3) in preferred order (e.g., webdev, appdev, sysad):"

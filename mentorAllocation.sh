@@ -12,7 +12,7 @@ declare -A mentee_domains
 
 # Function to read mentor details
 read_mentors() {
-    local mentors_file="$CORE_HOME/mentors.txt"
+    local mentors_file="$CORE_HOME/mentorDetails.txt"
     if [ ! -f "$mentors_file" ]; then
         echo "Error: Mentors file not found at $mentors_file"
         exit 1

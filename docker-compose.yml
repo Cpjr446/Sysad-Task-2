@@ -21,7 +21,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - shared:home/aakash/Desktop/Delta/shared/
+      - shared shared:home/cpvbox/Sysad2/shared/
     command: bash -c "cp home/cpvbox/Sysad2/shared/database.sql docker-entrypoint-initdb.d/database.sql && docker-entrypoint.sh postgres"
 
 volumes:

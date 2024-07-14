@@ -11,5 +11,5 @@ echo "CREATE TABLE mentees (
 
 # rollno domain1 domain2 domain3
 while read -r rollno domain1 domain2 domain3; do
-    echo "INSERT INTO mentees (rollno, domain1, domain2, domain3) VALUES ("$rollno", "$domain1", "$domain2", "$domain3");" >> /home/aakash/Desktop/Delta/shared/database.sql
+    echo "INSERT INTO mentees (rollno, domain1, domain2, domain3) VALUES ("$rollno", "$domain1", "$domain2", "$domain3");" >>/home/cpvbox/Sysad2/shared/database.sql
 done < "$CORE_HOME/mentees_domain.txt"
